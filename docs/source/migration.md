@@ -20,11 +20,11 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased')
 # If you used to have this line in pytorch-pretrained-bert:
 loss = model(input_ids, labels=labels)
 
-# Now just use this line in transformers to extract the loss from the output tuple:
+transformers_tanda
 outputs = model(input_ids, labels=labels)
 loss = outputs[0]
 
-# In transformers you can also have access to the logits:
+transformers_tanda
 loss, logits = outputs[:2]
 
 # And even the attention weigths if you configure the model to output them (and other outputs too, see the docstrings and documentation)
