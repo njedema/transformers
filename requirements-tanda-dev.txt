@@ -8,6 +8,7 @@ bcrypt==3.1.7
 boto==2.49.0
 boto3==1.9.243
 botocore==1.12.243
+beautifulsoup4==4.8.0
 certifi==2019.9.11
 cffi==1.13.2
 chardet==3.0.4
