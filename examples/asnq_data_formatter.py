@@ -43,7 +43,7 @@ def write_asnq_format(file_path: str, lines):
                 output_line['annotation'] = annotation if annotation else None
                 writer.writerow(output_line)
             if line[0] % LINES_LOG_INTERVAL == 0:
-                print('Appended {} lines to {}'.format(LINES_LOG_INTERVAL, file_path))
+                print('Appending {} lines to {}'.format(LINES_LOG_INTERVAL, file_path))
 
 
 def clean_candidates(lines):
@@ -61,7 +61,7 @@ def clean_candidates(lines):
             # there may be multiple paragraphs in a candidate; pull out the text and aggregate them into one candidate
             paragraphs = soup.find_all('p')
             clean_candidate = " ".join(sentence.get_text() for sentence in paragraphs)
-            if clean_candidate:
+            if clean_candidate and clean_candidate not in [" ", "   "]:  # space and tab
                 clean.append(clean_candidate)
         line['clean_candidates'] = clean
         yield line
